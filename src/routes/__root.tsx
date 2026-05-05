@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "SleeveAce Lab" },
+      { name: "description", content: "SleeveAce Insights provides professional Forex and Trading analysis with a modern Fintech design." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "SleeveAce Lab" },
+      { property: "og:description", content: "SleeveAce Insights provides professional Forex and Trading analysis with a modern Fintech design." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "SleeveAce Lab" },
+      { name: "twitter:description", content: "SleeveAce Insights provides professional Forex and Trading analysis with a modern Fintech design." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fd3ee007-43d4-42f4-9eba-ad583a9cbe65/id-preview-517b365d--f9511e5f-7517-4c8e-8975-e94a9a7da4bd.lovable.app-1778004336747.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fd3ee007-43d4-42f4-9eba-ad583a9cbe65/id-preview-517b365d--f9511e5f-7517-4c8e-8975-e94a9a7da4bd.lovable.app-1778004336747.png" },
     ],
     links: [
       {
