@@ -72,6 +72,8 @@ function Index() {
               <div><span className="text-foreground font-bold text-xl">85%</span><br />Setup vincenti</div>
               <div className="h-8 w-px bg-border" />
               <div><span className="text-foreground font-bold text-xl">24/7</span><br />Supporto</div>
+              <div className="h-8 w-px bg-border" />
+              <div><span className="text-foreground font-bold text-xl">100%</span><br />Free</div>
             </div>
           </div>
 
