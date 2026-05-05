@@ -46,13 +46,13 @@ function Index() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Live Market Analysis
+              100% Free · Live Market Analysis
             </span>
             <h1 className="mt-5 text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
               Domina i Mercati con <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Analisi Istituzionali</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-              Analisi quotidiane gratuite su Forex e Oro. Setup verificati, livelli chiave e bias di mercato direttamente sul tuo Telegram.
+              Analisi quotidiane <span className="text-primary font-semibold">completamente gratuite</span> su Forex e Oro. Setup verificati, livelli chiave e bias di mercato direttamente sul tuo Telegram. Nessun abbonamento, nessun costo nascosto.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <button
