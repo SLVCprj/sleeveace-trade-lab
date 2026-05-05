@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShieldCheck, Headphones, Gift, TrendingUp, LineChart, Send, ExternalLink } from "lucide-react";
+import { ShieldCheck, Headphones, Gift, TrendingUp, LineChart, Send, ExternalLink, Lock } from "lucide-react";
 import tradingChart from "@/assets/trading-chart.jpg";
 
 export const Route = createFileRoute("/")({
@@ -26,14 +26,14 @@ function Index() {
             </span>
             <span>SleeveAce<span className="text-primary"> Lab</span></span>
           </a>
-          <a
-            href="https://t.me/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-semibold text-muted-foreground cursor-not-allowed opacity-60"
           >
-            <Send className="h-4 w-4" /> Telegram
-          </a>
+            <Lock className="h-4 w-4" /> Telegram
+          </button>
         </div>
       </header>
 
@@ -55,22 +55,20 @@ function Index() {
               Analisi quotidiane gratuite su Forex e Oro. Setup verificati, livelli chiave e bias di mercato direttamente sul tuo Telegram.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://t.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-bold text-primary-foreground hover:scale-[1.02] transition"
-                style={{ boxShadow: "var(--shadow-glow)" }}
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Coming soon"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-muted px-7 py-4 text-base font-bold text-muted-foreground cursor-not-allowed opacity-60"
               >
-                <Send className="h-5 w-5" /> Entra nel Canale Telegram
-              </a>
+                <Lock className="h-5 w-5" /> Entra nel Canale Telegram
+              </button>
               <a href="#perche" className="inline-flex items-center justify-center rounded-full border border-border px-7 py-4 text-base font-medium hover:bg-card transition">
                 Scopri di più
               </a>
             </div>
             <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
-              <div><span className="text-foreground font-bold text-xl">2.5k+</span><br />Trader attivi</div>
-              <div className="h-8 w-px bg-border" />
               <div><span className="text-foreground font-bold text-xl">85%</span><br />Setup vincenti</div>
               <div className="h-8 w-px bg-border" />
               <div><span className="text-foreground font-bold text-xl">24/7</span><br />Supporto</div>
@@ -141,22 +139,18 @@ function Index() {
       <section className="max-w-6xl mx-auto px-5 py-20 md:py-28">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary p-8 md:p-14">
           <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
-          <div className="relative grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative grid md:grid-cols-2 gap-10 items-center blur-md select-none pointer-events-none" aria-hidden="true">
             <div>
               <p className="text-accent text-sm font-mono uppercase tracking-widest">// Broker Partner</p>
               <h2 className="mt-3 text-3xl md:text-4xl font-bold">Tradi con <span className="text-primary">Axi</span>.</h2>
               <p className="mt-4 text-muted-foreground text-lg">
                 Abbiamo scelto Axi come broker partner ufficiale: spread istituzionali, esecuzione veloce e regolamentazione di primo livello. Apri un conto VIP e accedi a condizioni dedicate.
               </p>
-              <a
-                href="https://www.axi.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-bold text-primary-foreground hover:scale-[1.02] transition"
-                style={{ boxShadow: "var(--shadow-glow)" }}
+              <span
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-muted px-7 py-4 text-base font-bold text-muted-foreground opacity-60"
               >
                 Apri un conto VIP <ExternalLink className="h-4 w-4" />
-              </a>
+              </span>
             </div>
             <div className="flex items-center justify-center">
               <div className="rounded-2xl border border-border bg-background/50 backdrop-blur px-10 py-8 text-center">
@@ -167,6 +161,13 @@ function Index() {
               </div>
             </div>
           </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 backdrop-blur px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              <Lock className="h-3.5 w-3.5" /> Coming Soon
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold">Broker Partner</h2>
+            <p className="text-muted-foreground max-w-md">In arrivo a breve. Stiamo finalizzando la partnership ufficiale.</p>
+          </div>
         </div>
       </section>
 
@@ -175,15 +176,16 @@ function Index() {
         <TrendingUp className="mx-auto h-10 w-10 text-primary" />
         <h2 className="mt-4 text-3xl md:text-5xl font-bold">Pronto a tradare con noi?</h2>
         <p className="mt-4 text-muted-foreground text-lg">Unisciti gratis al canale Telegram e ricevi la prossima analisi.</p>
-        <a
-          href="https://t.me/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold text-primary-foreground hover:scale-[1.02] transition"
-          style={{ boxShadow: "var(--shadow-glow)" }}
+        <button
+          type="button"
+          disabled
+          aria-disabled="true"
+          title="Coming soon"
+          className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-muted px-8 py-4 text-base font-bold text-muted-foreground cursor-not-allowed opacity-60"
         >
-          <Send className="h-5 w-5" /> Entra nel Canale Telegram
-        </a>
+          <Lock className="h-5 w-5" /> Entra nel Canale Telegram
+        </button>
+        <p className="mt-3 text-xs text-muted-foreground">Coming soon</p>
       </section>
 
       {/* Footer / Disclaimer */}
