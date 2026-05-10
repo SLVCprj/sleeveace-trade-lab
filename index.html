@@ -315,7 +315,8 @@
       border: 1px solid var(--border2);
       transition: all .2s;
     }
-    .btn-ghost:hover { background: var(--bg3); border-color: var(--border2); }
+    .btn-ghost:hover { background: var(--bg3); border-color: var(--green); color: var(--green); }
+    .btn-ghost svg { width: 18px; height: 18px; flex-shrink: 0; }
 
     .hero-stats {
       margin-top: 40px;
@@ -575,16 +576,16 @@
       width: 200px; height: 200px;
       background: radial-gradient(circle, rgba(255,213,79,0.08) 0%, transparent 70%);
     }
-    .coming-badge {
+    .partner-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 7px 18px;
-      background: rgba(255,213,79,0.08);
-      border: 1px solid rgba(255,213,79,0.25);
+      background: rgba(0,230,118,0.08);
+      border: 1px solid rgba(0,230,118,0.25);
       border-radius: 100px;
       font-size: 12px;
-      color: var(--gold);
+      color: var(--green);
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -615,6 +616,8 @@
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     .final-inner h2 { font-size: clamp(30px, 5vw, 52px); }
     .final-inner p { font-size: 17px; color: var(--fg2); margin: 16px 0 36px; line-height: 1.65; }
+    .final-cta-group { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+    
     .btn-primary-lg {
       display: inline-flex;
       align-items: center;
@@ -636,8 +639,26 @@
     }
     .btn-primary-lg:hover { transform: translateY(-3px); box-shadow: 0 20px 60px var(--glow); }
     .btn-primary-lg .shimmer { position: absolute; top:0; left:-100%; width:60%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2.5s ease infinite; }
-    .btn-primary-lg svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .final-note { margin-top: 16px; font-size: 12px; color: var(--fg2); }
+    .btn-primary-lg svg { width: 22px; height: 22px; flex-shrink: 0; }
+    
+    .btn-ghost-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 40px;
+      background: transparent;
+      color: var(--fg);
+      font-weight: 600;
+      font-size: 17px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1px solid var(--border2);
+      transition: all .2s;
+    }
+    .btn-ghost-lg:hover { background: var(--bg3); border-color: var(--green); color: var(--green); }
+    .btn-ghost-lg svg { width: 20px; height: 20px; flex-shrink: 0; }
+    
+    .final-note { margin-top: 24px; font-size: 12px; color: var(--fg2); }
     .final-note strong { color: var(--green); }
 
     /* ── FOOTER ─────────────────────────────────────── */
@@ -697,7 +718,6 @@
 </head>
 <body>
 
-<!-- TICKER BAR -->
 <div class="ticker-bar" aria-hidden="true">
   <div class="ticker-track" id="ticker">
     <span class="tick-item"><span class="sym">EUR/USD</span> <span class="up" id="t-eurusd">1.0812</span> <span class="up">▲ +0.18%</span></span>
@@ -706,7 +726,6 @@
     <span class="tick-item"><span class="sym">USD/JPY</span> <span class="dn" id="t-usdjpy">145.21</span> <span class="dn">▼ -0.12%</span></span>
     <span class="tick-item"><span class="sym">USD/CHF</span> <span>0.8963</span> <span class="up">▲ +0.07%</span></span>
     <span class="tick-item"><span class="sym">AUD/USD</span> <span class="dn">0.6487</span> <span class="dn">▼ -0.09%</span></span>
-    <!-- duplicate for seamless loop -->
     <span class="tick-item"><span class="sym">EUR/USD</span> <span class="up">1.0812</span> <span class="up">▲ +0.18%</span></span>
     <span class="tick-item"><span class="sym">GBP/USD</span> <span class="up">1.2741</span> <span class="up">▲ +0.24%</span></span>
     <span class="tick-item"><span class="sym">XAU/USD</span> <span class="up">3327.40</span> <span class="up">▲ +1.84%</span></span>
@@ -716,7 +735,6 @@
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
@@ -733,15 +751,14 @@
         <button class="lang-btn active" id="btn-en" onclick="setLang('en')">ENG</button>
         <button class="lang-btn" id="btn-it" onclick="setLang('it')">ITA</button>
       </div>
-      <a href="#telegram" class="nav-tg">
+      <a href="https://t.me/sleeveacelabfree" target="_blank" class="nav-tg">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        <span data-t="navTelegram">Telegram</span>
+        <span data-t="navTelegram">Free Telegram</span>
       </a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="grid-overlay"></div>
@@ -761,12 +778,15 @@
         <span data-t="heroSub1">Daily </span><strong data-t="heroSubHl">completely free</strong><span data-t="heroSub2"> analysis on Forex and Gold. Verified setups, key levels and market bias delivered straight to your Telegram.</span>
       </p>
       <div class="hero-cta">
-        <a href="#telegram" class="btn-primary" id="hero-cta-btn">
+        <a href="https://www.instagram.com/slvc_lifeflow/" target="_blank" class="btn-primary" id="hero-cta-btn">
           <span class="shimmer"></span>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          <span data-t="ctaJoin">Join the Telegram Channel</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span data-t="ctaInsta">DM 'LAB' on Instagram</span>
         </a>
-        <a href="#perche" class="btn-ghost" data-t="ctaLearn">Learn more</a>
+        <a href="https://t.me/sleeveacelabfree" target="_blank" class="btn-ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <span data-t="ctaTelegram">Free Telegram Channel</span>
+        </a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -812,7 +832,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section>
   <div class="section-inner">
     <div class="reveal">
@@ -853,7 +872,6 @@
   </div>
 </section>
 
-<!-- WHY -->
 <section id="perche" class="why-section">
   <div class="section-inner">
     <div class="reveal" style="text-align:center">
@@ -880,35 +898,47 @@
   </div>
 </section>
 
-<!-- BROKER COMING SOON -->
 <section class="broker-section">
   <div class="section-inner">
     <div class="broker-card reveal">
-      <div class="coming-badge">
-        <span>⏳</span> <span data-t="comingSoon">Coming Soon</span>
+      <div class="partner-badge">
+        <span>🤝</span> <span data-t="brokerPartner">Official Partner</span>
       </div>
-      <h2 data-t="brokerComing">Broker Partner</h2>
-      <p data-t="brokerComingSub">We're finalizing our official partnership with a top-tier regulated broker. Exclusive VIP conditions for our community. Stay tuned.</p>
+      <h2 data-t="brokerTitle">AvaTrade</h2>
+      <p data-t="brokerDesc">We have partnered with AvaTrade, a top-tier regulated broker. Open your account through our official link to access exclusive VIP conditions for our community.</p>
+      <div style="margin-top: 32px; position: relative; z-index: 1;">
+         <a href="https://www.avatrade.it?p=Webtrader&tag=220931" target="_blank" class="btn-primary" style="padding: 16px 32px;">
+            <span class="shimmer"></span>
+            <span data-t="brokerBtn">Open AvaTrade Account</span>
+         </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-section" id="telegram">
+<section class="final-section">
   <div class="final-inner">
     <div class="final-icon reveal">📈</div>
     <h2 class="reveal" data-t="finalTitle">Ready to trade with us?</h2>
-    <p class="reveal reveal-delay-1" data-t="finalSub">Join the Telegram channel for free and receive the next analysis.</p>
-    <a href="#telegram" class="btn-primary-lg reveal reveal-delay-2" id="final-cta-btn">
-      <span class="shimmer"></span>
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      <span data-t="ctaJoin">Join the Telegram Channel</span>
-    </a>
+    <p class="reveal reveal-delay-1" data-t="finalSub">Send us a DM with the word 'LAB' on Instagram to get access info, or view our free open channel.</p>
+    
+    <div class="final-cta-group">
+      <a href="https://www.instagram.com/slvc_lifeflow/" target="_blank" class="btn-primary-lg reveal reveal-delay-2">
+        <span class="shimmer"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <span data-t="ctaInsta">DM 'LAB' on Instagram</span>
+      </a>
+      
+      <a href="https://t.me/sleeveacelabfree" target="_blank" class="btn-ghost-lg reveal reveal-delay-2">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        <span data-t="ctaTelegram">Free Telegram Channel</span>
+      </a>
+    </div>
+
     <p class="final-note reveal reveal-delay-3"><strong data-t="finalNoteHl">100% Free</strong> <span data-t="finalNoteText">· No subscription · No hidden costs</span></p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -932,22 +962,21 @@
   </div>
 </footer>
 
-<!-- TOAST CONTAINER -->
 <div class="toast-container" id="toast-container"></div>
 
 <script>
 // ── TRANSLATIONS ──────────────────────────────────────
 const T = {
   en: {
-    navTelegram: "Telegram",
+    navTelegram: "Free Telegram",
     badge: "100% Free · Live Market Analysis",
     heroTitlePre: "Master the Markets with",
     heroTitleHl: "Institutional Analysis",
     heroSub1: "Daily ",
     heroSubHl: "completely free",
     heroSub2: " analysis on Forex and Gold. Verified setups, key levels and market bias delivered straight to your Telegram.",
-    ctaJoin: "Join the Telegram Channel",
-    ctaLearn: "Learn more",
+    ctaInsta: "DM 'LAB' on Instagram",
+    ctaTelegram: "Free Telegram Channel",
     statSetups: "Winning setups",
     statSupport: "Support",
     statFree: "Free",
@@ -974,11 +1003,12 @@ const T = {
     feat2Desc: "Our team answers your questions in any market session.",
     feat3Title: "Free Access",
     feat3Desc: "The Telegram channel is and will remain free. The community is our asset.",
-    comingSoon: "Coming Soon",
-    brokerComing: "Broker Partner",
-    brokerComingSub: "We're finalizing our official partnership with a top-tier regulated broker. Exclusive VIP conditions for our community. Stay tuned.",
+    brokerPartner: "Official Partner",
+    brokerTitle: "AvaTrade",
+    brokerDesc: "We have partnered with AvaTrade, a top-tier regulated broker. Open your account through our official link to access exclusive VIP conditions for our community.",
+    brokerBtn: "Open AvaTrade Account",
     finalTitle: "Ready to trade with us?",
-    finalSub: "Join the Telegram channel for free and receive the next analysis.",
+    finalSub: "Send us a DM with the word 'LAB' on Instagram to get access info, or view our free open channel.",
     finalNoteHl: "100% Free",
     finalNoteText: "· No subscription · No hidden costs",
     rights: "All rights reserved.",
@@ -988,15 +1018,15 @@ const T = {
     disclaimerText2: " and do not constitute in any way financial advice, recommendation or solicitation to invest. You are solely responsible for your trading decisions.",
   },
   it: {
-    navTelegram: "Telegram",
+    navTelegram: "Telegram Gratis",
     badge: "100% Free · Analisi di Mercato Live",
     heroTitlePre: "Domina i Mercati con",
     heroTitleHl: "Analisi Istituzionali",
     heroSub1: "Analisi quotidiane ",
     heroSubHl: "completamente gratuite",
     heroSub2: " su Forex e Oro. Setup verificati, livelli chiave e bias di mercato direttamente sul tuo Telegram.",
-    ctaJoin: "Entra nel Canale Telegram",
-    ctaLearn: "Scopri di più",
+    ctaInsta: "Scrivici 'LAB' in DM su IG",
+    ctaTelegram: "Canale Telegram Gratuito",
     statSetups: "Setup vincenti",
     statSupport: "Supporto",
     statFree: "Free",
@@ -1023,11 +1053,12 @@ const T = {
     feat2Desc: "Il nostro team risponde alle tue domande in qualsiasi sessione di mercato.",
     feat3Title: "Accesso Gratuito",
     feat3Desc: "Il canale Telegram è e resterà gratuito. La community è il nostro asset.",
-    comingSoon: "In Arrivo",
-    brokerComing: "Broker Partner",
-    brokerComingSub: "Stiamo finalizzando la partnership ufficiale con un broker regolamentato di primo livello. Condizioni VIP esclusive per la nostra community.",
+    brokerPartner: "Partner Ufficiale",
+    brokerTitle: "AvaTrade",
+    brokerDesc: "Abbiamo stretto una partnership con AvaTrade, broker regolamentato di primo livello. Apri il conto tramite il nostro link per accedere a condizioni VIP esclusive per la nostra community.",
+    brokerBtn: "Apri Conto AvaTrade",
     finalTitle: "Pronto a tradare con noi?",
-    finalSub: "Unisciti gratis al canale Telegram e ricevi la prossima analisi.",
+    finalSub: "Inviaci un DM con la parola 'LAB' su Instagram per ricevere le info di accesso, oppure guarda il canale aperto gratuito.",
     finalNoteHl: "100% Gratuito",
     finalNoteText: "· Nessun abbonamento · Nessun costo nascosto",
     rights: "Tutti i diritti riservati.",
